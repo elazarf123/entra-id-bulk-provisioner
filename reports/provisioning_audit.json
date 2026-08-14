@@ -1,0 +1,64 @@
+{
+  "execution_mode": "DRY_RUN",
+  "total_records": 5,
+  "successful": 5,
+  "failed": 0,
+  "generated_at": "2026-08-14T19:13:14.768441+00:00",
+  "audit_trail": [
+    {
+      "row": 1,
+      "display_name": "Alex Mercer",
+      "user_principal_name": "alex.mercer@enterprise-corp.com",
+      "department": "Security Operations",
+      "job_title": "SOC Analyst",
+      "assigned_security_group": "SG-SecOps-Standard",
+      "assigned_license_sku": "SPE_E5 (Microsoft 365 E5)",
+      "status": "SIMULATED_SUCCESS",
+      "timestamp": "2026-08-14T19:13:14.767489+00:00"
+    },
+    {
+      "row": 2,
+      "display_name": "Elena Reyes",
+      "user_principal_name": "elena.reyes@enterprise-corp.com",
+      "department": "Finance",
+      "job_title": "Billing Specialist",
+      "assigned_security_group": "SG-Finance-Standard",
+      "assigned_license_sku": "SPE_E5 (Microsoft 365 E5)",
+      "status": "SIMULATED_SUCCESS",
+      "timestamp": "2026-08-14T19:13:14.767787+00:00"
+    },
+    {
+      "row": 3,
+      "display_name": "Marcus Vance",
+      "user_principal_name": "marcus.vance@enterprise-corp.com",
+      "department": "Engineering",
+      "job_title": "Cloud Engineer",
+      "assigned_security_group": "SG-CloudEngineering-Standard",
+      "assigned_license_sku": "SPE_E5 (Microsoft 365 E5)",
+      "status": "SIMULATED_SUCCESS",
+      "timestamp": "2026-08-14T19:13:14.767941+00:00"
+    },
+    {
+      "row": 4,
+      "display_name": "Sarah Chen",
+      "user_principal_name": "sarah.chen@enterprise-corp.com",
+      "department": "Customer Success",
+      "job_title": "Account Manager",
+      "assigned_security_group": "SG-CustomerSuccess-Standard",
+      "assigned_license_sku": "SPE_E5 (Microsoft 365 E5)",
+      "status": "SIMULATED_SUCCESS",
+      "timestamp": "2026-08-14T19:13:14.768116+00:00"
+    },
+    {
+      "row": 5,
+      "display_name": "David Kim",
+      "user_principal_name": "david.kim@enterprise-corp.com",
+      "department": "IT Infrastructure",
+      "job_title": "Systems Admin",
+      "assigned_security_group": "SG-IT-Infra-Standard",
+      "assigned_license_sku": "SPE_E5 (Microsoft 365 E5)",
+      "status": "SIMULATED_SUCCESS",
+      "timestamp": "2026-08-14T19:13:14.768268+00:00"
+    }
+  ]
+}
