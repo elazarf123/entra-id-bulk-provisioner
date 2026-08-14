@@ -1,8 +1,3 @@
----
-
-# 2. [`entra-id-bulk-provisioner`](https://github.com/elazarf123/entra-id-bulk-provisioner) — Updated `README.md`
-
-```markdown
 # 🆔 Entra ID Bulk User Provisioning & Identity Automation
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
