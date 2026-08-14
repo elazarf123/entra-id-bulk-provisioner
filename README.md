@@ -1,32 +1,37 @@
-# ☁️ Microsoft Entra ID: Bulk User Provisioning Automation
+---
 
-## 📌 Project Overview
-This project is an enterprise-grade IT automation script built with Python and the Microsoft Graph API. It is designed to programmatically handle bulk employee onboarding by automating the creation of user identities in Microsoft Entra ID (formerly Azure AD). 
+# 2. [`entra-id-bulk-provisioner`](https://github.com/elazarf123/entra-id-bulk-provisioner) — Updated `README.md`
 
-By replacing manual data entry with an automated pipeline, this tool significantly reduces administrative overhead, minimizes human error, and ensures strict adherence to security and compliance protocols from day one.
+```markdown
+# 🆔 Entra ID Bulk User Provisioning & Identity Automation
 
-## 🚀 Business Value & Impact
-* **Operational Efficiency:** Automates the ingestion of structured HR data (CSV) to instantly provision multiple user accounts.
-* **Automated Licensing:** Programmatically assigns specific Microsoft 365 licenses (e.g., E3/E5) to new users upon creation, ensuring immediate access to necessary productivity tools.
-* **Security & Zero-Trust:** Leverages Python's cryptographically secure `secrets` module to generate robust, randomized temporary passwords. It automatically flags accounts to force a password reset upon the user's initial login, adhering to Zero-Trust identity principles.
-* **Resilient Architecture:** Built with robust error handling (`try/except`) to ensure that a failure in one row (e.g., a duplicate email address) does not halt the entire batch execution.
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
+[![Microsoft Graph API](https://img.shields.io/badge/Microsoft%20Graph-SDK%20v1.0-0078D4.svg)](https://learn.microsoft.com/graph/)
+[![Entra ID](https://img.shields.io/badge/Identity-Microsoft%20Entra%20ID-blue.svg)](https://entra.microsoft.com/)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF.svg)](https://github.com/features/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🛠️ Technology Stack
-* **Language:** Python 3.10+
-* **Authentication:** App-Only (Client Credentials flow) via `azure-identity`
-* **API:** Microsoft Graph API (`msgraph-sdk`)
-* **Core Modules:** `csv`, `asyncio`, `secrets`, `uuid`, `os`
+Enterprise identity lifecycle management automation for **Microsoft Entra ID (Azure AD)** using **Python**, the **Microsoft Graph API**, and **GitHub Actions**.
 
-## ⚙️ Prerequisites & Setup
-To run this script in a live Microsoft 365 environment, you must configure an App Registration in the Microsoft Entra admin center with the following:
-1. **API Permissions:** `User.ReadWrite.All` (Application permission with Admin Consent granted).
-2. **Environment Variables:** You must securely export the following credentials to your local environment (never hardcode them into the script):
-   * `TENANT_ID`
-   * `CLIENT_ID`
-   * `CLIENT_SECRET`
+Automates bulk user onboarding, licensing, departmental group assignment, and attribute validation while enforcing **Least Privilege** and **Zero Trust** identity standards.
 
-## 💻 Usage Instructions
-1. Clone the repository to your local machine.
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
+---
+
+## 📐 Architecture & Identity Workflow
+
+```mermaid
+graph TD
+    HR[HR Roster / CSV / JSON Feed] -->|Validated Ingestion| SchemaCheck[Schema & UPN Validator]
+    SchemaCheck -->|OAuth 2.0 Client Creds| MSGraph[Microsoft Graph API Endpoint]
+    
+    subgraph Provisioning Pipeline
+        MSGraph --> Create[Create Entra ID User Object]
+        Create --> GroupAssign[Assign Dynamic / Security Groups]
+        GroupAssign --> License[Assign Microsoft 365 License SKU]
+        License --> MFAFlag[Enforce Registration Campaign / MFA]
+    end
+
+    subgraph Audit & Governance
+        Create --> AuditLog[Structured Audit Log / JSON]
+        AuditLog --> SIEM[SIEM / Azure Monitor Ingestion]
+    end
